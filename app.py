@@ -1,14 +1,14 @@
+import flask
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
 
-@app.route("/<id>", methods=["DELETE"])
-def delete(id):
-    import os
-    number = input("which file do you want to delete ?")
-    print(number)
-    if os.path.exists("users/" + number + ".txt"):
-        os.remove("users/" + number + ".txt")
+@app.route('/users/<id>', methods=['DELETE'])
+def delete_user(id):
+    if os.path.exists("users/" + id + ".txt"):
+        os.remove("users/" + id + ".txt")
+        return flask.Response(status=200)
     else:
-        print("The file does not exist")
+        return flask.Response(status=500)
