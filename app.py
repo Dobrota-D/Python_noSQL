@@ -12,9 +12,10 @@ def main():
     client = pymongo.MongoClient(
         f"mongodb+srv://{user_name}:{password}@cluster0.zpvod.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     db = client.pythonanime
-    collection = db.directors
+    collection_animes = db.animes
+    collection_directors = db.directors
 
-    collection.insert_one({"messages": "oui"})
+    collection_animes.insert_one({"messages": "oui"})
     print("done")
 
 
