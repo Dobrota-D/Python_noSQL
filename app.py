@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 
 @app.route("/animes", methods=["GET"])
-def afficher_anime():
+def display_anime():
     """
         We are going to sort anime by alphebitical and acreasing order
     """
@@ -60,15 +60,22 @@ def afficher_anime():
 def create_anime():
     """
 
-    :return:
+     We are going to create a new anime in the anime collection
+
     """
-    new_anime = {
-        '_id': 'e'
-    }
+    new_anime = [{
+       # "_id": "11",
+       # "title": "one piece",
+       # "genre": "adventure",
+       # "animation_studio": "jesaispas",
+       # "director": "uda",
+       # "release_date": "2088",
+       # "episodes": "1000",
+    }]
     # collection_animes.insert_one(new_anime)
 
     return {'code': 200, 'msg': 'Nouvel animé créé'}
 
 
 if __name__ == "__main__":
-    afficher_anime()
+    display_anime()
