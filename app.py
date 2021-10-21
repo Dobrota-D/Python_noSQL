@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import pymongo
 
 app = Flask(__name__)
@@ -15,8 +15,11 @@ def main():
     collection_animes = db.animes
     collection_directors = db.directors
 
-    collection_animes.insert_one({"messages": "oui"})
-    print("done")
+    @app.route("/", methods=["POST", "GET"])
+    def saluy():
+        args = request.args
+        print(args)
+        return args
 
 
 if __name__ == "__main__":
