@@ -3,17 +3,17 @@ import pymongo
 
 app = Flask(__name__)
 
+user_name = "martin"
+password = "billybob"
+client = pymongo.MongoClient(
+    f"mongodb+srv://{user_name}:{password}@cluster0.zpvod.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client.pythonanime
+collection_animes = db.animes
+collection_directors = db.directors
 
-def main():
-    """"""
+collection_animes.insert_one({"messages": "oui"})
+print("done")
 
-    user_name = "martin"
-    password = "billybob"
-    client = pymongo.MongoClient(
-        f"mongodb+srv://{user_name}:{password}@cluster0.zpvod.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    db = client.pythonanime
-    collection_animes = db.animes
-    collection_directors = db.directors
 
     @app.route("/", methods=["POST", "GET"])
     def saluy():
@@ -23,4 +23,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    app.run(
+        host="127.0.0.1",
+        port=3000,
+        debug=True
+    )
