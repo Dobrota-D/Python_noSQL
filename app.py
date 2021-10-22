@@ -1,5 +1,6 @@
 import pymongo
 from flask import Flask, request
+from markupsafe import escape
 
 """
 Her we gonna init the link between the mongodb database and the app.py, by using the admin account in the user_name
@@ -60,7 +61,7 @@ def create_anime():
 
     """
     new_anime = {
-        "_id": "11",
+        "_id": "14",
         "title": "one piece",
         "genre": "adventure",
         "animation_studio": "jesaispas",
@@ -83,5 +84,25 @@ def create_anime():
     return {'code': 200, 'msg': 'new anime has been created'}
 
 
-if __name__ == "__main__":
-    create_anime()
+@app.route("/animes/<_id>", methods=["DELETE"])
+def delete_anime(_id):
+    """This function will delete the anime by using the id in the collection
+        _id = this is the id from the anime we want to delete
+    """
+
+    collection_animes.delete_one({"_id": int(_id)})
+
+    return {'code': 200, 'msg': 'an anime has been deleted'}
+
+
+@app.route("/directors/<_id>", methods=["DELETE"])
+def delete_director(_id):
+    """This function will delete the director by using the id in the collection
+        _id = this is the id from the director we want to delete
+    """
+    collection_directors.delete_one({"_id": int(_id)})
+
+    return {'code': 200, 'msg': 'an director has been deleted'}
+
+def genreate_anime_id ()
+    
