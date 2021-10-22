@@ -18,8 +18,6 @@ collection_directors = db.directors
 app = Flask(__name__)
 
 
-
-
 @app.route("/animes", methods=["GET"])
 def display_anime():
     """
@@ -78,7 +76,7 @@ def display_director():
 """
 
   We are going to create a new anime in the anime collection
-    
+
  """
 
 
@@ -127,7 +125,7 @@ def create_directors():
     new_directors = {
         "_id": body["_id"],
         "firstname": body["firstname"],
-        "lastname": body["lastname"],        "age": body["age"],
+        "lastname": body["lastname"], "age": body["age"],
 
         "gender": body["gender"],
         "creation": body["creation"],
