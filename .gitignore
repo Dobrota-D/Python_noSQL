@@ -11,3 +11,5 @@
 .idea/inspectionProfiles/profiles_settings.xml
 
 .idea
+
+__pycache__/app.cpython-310.pyc
