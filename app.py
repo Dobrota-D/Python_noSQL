@@ -88,14 +88,17 @@ def create_anime():
     we create a new anime with several args
 
     """
+
+    body = request.json
+
     new_anime = {
-        "_id": "11",
-        "title": "one piece",
-        "genre": "adventure",
-        "animation_studio": "jesaispas",
-        "director": "uda",
-        "release_date": "2088",
-        "episodes": "1000",
+        "_id": body["_id"],
+        "title": body["title"],
+        "genre": body["genre"],
+        "animation_studio": body["animation_studio"],
+        "director": body["director"],
+        "release_date": body["release_date"],
+        "episodes": body["episodes"],
     }
     """
 
@@ -119,15 +122,16 @@ def create_directors():
     we create a new anime with several args
 
     """
+    body = request.json
     new_directors = {
-        "_id": "zsegf",
-        "firstname": "michaïle",
-        "lastname": "jorge",
-        "age": "12",
-        "gender": "none",
-        "creation": "violet",
-        "birthdate": "2001",
-        "animation_studio": "kanaba",
+        "_id": body["_id"],
+        "firstname": body["firstname"],
+        "lastname": body["lastname"],
+        "age": body["age"],
+        "gender": body["gender"],
+        "creation": body["creation"],
+        "birthdate": body["birthdate"],
+        "animation_studio": body["animation_studio"],
     }
     """
 
