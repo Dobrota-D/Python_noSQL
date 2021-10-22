@@ -18,6 +18,8 @@ collection_directors = db.directors
 app = Flask(__name__)
 
 
+
+
 @app.route("/animes", methods=["GET"])
 def display_anime():
     """
@@ -61,7 +63,7 @@ def create_anime():
 
     """
     new_anime = {
-        "_id": "12",
+        "_id": "45",
         "title": "one piece",
         "genre": "adventure",
         "animation_studio": "jesaispas",
@@ -92,7 +94,7 @@ def create_directors():
 
     """
     new_directors = {
-        "_id": "12",
+        "_id": "zsegf",
         "firstname": "michaïle",
         "lastname": "jorge",
         "age": "12",
@@ -118,6 +120,8 @@ def create_directors():
 
 if __name__ == "__main__":
     create_directors()
+
+
 @app.route("/animes/<_id>", methods=["DELETE"])
 def delete_anime(_id):
     """This function will delete the anime by using the id in the collection
@@ -137,6 +141,3 @@ def delete_director(_id):
     collection_directors.delete_one({"_id": int(_id)})
 
     return {'code': 200, 'msg': 'an director has been deleted'}
-
-def genreate_anime_id ()
-    
