@@ -56,26 +56,42 @@ def display_anime():
         }
 
 
-@app.route("/animes", methods=["POST"])
-def create_anime():
-    """
+"""
 
      We are going to create a new anime in the anime collection
 
     """
-    new_anime = [{
-       # "_id": "11",
-       # "title": "one piece",
-       # "genre": "adventure",
-       # "animation_studio": "jesaispas",
-       # "director": "uda",
-       # "release_date": "2088",
-       # "episodes": "1000",
-    }]
-    # collection_animes.insert_one(new_anime)
+@app.route("/animes", methods=["POST"])
+def create_anime():
+    """
 
-    return {'code': 200, 'msg': 'Nouvel animé créé'}
+    we create a new anime with several args
+
+    """
+    new_anime = {
+        "_id": "11",
+        "title": "one piece",
+        "genre": "adventure",
+        "animation_studio": "jesaispas",
+        "director": "uda",
+        "release_date": "2088",
+        "episodes": "1000",
+    }
+    """
+
+    this will push the new anime in the animes collection 
+
+    """
+    collection_animes.insert_one(new_anime)
+    """
+
+    this will return a message if anime is created   
+
+    """
+
+    return {'code': 200, 'msg': 'new anime has been created'}
 
 
 if __name__ == "__main__":
-    display_anime()
+    create_anime()
+
