@@ -21,38 +21,27 @@ app = Flask(__name__)
 @app.route("/animes", methods=["GET"])
 def display_anime():
     """
-        We are going to sort anime by alphebitical and acreasing order
-    """
-    yes = collection_animes.find().sort("title")
-
-    # for x in yes:
-    # print(x)
-
-    """
         We are going to sort anime by decreasing order
     """
-    yes = collection_animes.find().sort("title", -1)
-
-    # for x in yes:
-    # print(x)
-
-    """
-         We are going to sort directors by alphebitical and acreasing order
-    """
-    yes = collection_directors.find().sort("firstname")
-
-    # for x in yes:
-    # print(x)
-
-    """
-        We are going to sort directors by decreasing order
-    """
-    # life = collection_directors.find().sort("firstname", -1)
+    # life = collection_animes.find().sort("firstname", -1)
     anime_list = list(collection_animes.find())
 
     return \
         {
             "anime_list": anime_list
+        }
+
+@app.route("/directors", methods=["GET"])
+def display_director():
+    """
+        We are going to sort director by decreasing order
+    """
+    # life = collection_directors.find().sort("firstname", -1)
+    director_list = list(collection_directors.find())
+
+    return \
+        {
+            "director_list": director_list
         }
 
 
