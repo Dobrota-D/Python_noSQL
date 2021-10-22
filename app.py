@@ -27,6 +27,7 @@ def display_anime():
     """
     # life = collection_animes.find().sort("firstname", -1)
     anime_list = list(collection_animes.find())
+    print(anime_list)
 
     return \
         {
@@ -67,7 +68,7 @@ def display_director():
     """
     # life = collection_directors.find().sort("firstname", -1)
     director_list = list(collection_directors.find())
-
+    print(director_list)
     return \
         {
             "director_list": director_list
@@ -89,7 +90,7 @@ def create_anime():
 
     """
 
-    body = request.json
+    body = request.get_json
 
     new_anime = {
         "_id": body["_id"],
