@@ -61,7 +61,7 @@ def create_anime():
 
     """
     new_anime = {
-        "_id": "14",
+        "_id": "12",
         "title": "one piece",
         "genre": "adventure",
         "animation_studio": "jesaispas",
@@ -84,6 +84,40 @@ def create_anime():
     return {'code': 200, 'msg': 'new anime has been created'}
 
 
+@app.route("/directors", methods=["POST"])
+def create_directors():
+    """
+
+    we create a new anime with several args
+
+    """
+    new_directors = {
+        "_id": "12",
+        "firstname": "michaïle",
+        "lastname": "jorge",
+        "age": "12",
+        "gender": "none",
+        "creation": "violet",
+        "birthdate": "2001",
+        "animation_studio": "kanaba",
+    }
+    """
+
+    this will push the new anime in the animes collection 
+
+    """
+    collection_directors.insert_one(new_directors)
+    """
+
+    this will return a message if anime is created   
+
+    """
+
+    return {'code': 200, 'msg': 'new directors has been add'}
+
+
+if __name__ == "__main__":
+    create_directors()
 @app.route("/animes/<_id>", methods=["DELETE"])
 def delete_anime(_id):
     """This function will delete the anime by using the id in the collection
