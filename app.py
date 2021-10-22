@@ -54,12 +54,10 @@ def display_anime():
         {
             "anime_list": anime_list
         }
-
-
-"""
-
+   """
+   
      We are going to create a new anime in the anime collection
-
+       
     """
 @app.route("/animes", methods=["POST"])
 def create_anime():
