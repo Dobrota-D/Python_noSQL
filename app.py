@@ -126,8 +126,8 @@ def create_directors():
     new_directors = {
         "_id": body["_id"],
         "firstname": body["firstname"],
-        "lastname": body["lastname"],
-        "age": body["age"],
+        "lastname": body["lastname"],        "age": body["age"],
+
         "gender": body["gender"],
         "creation": body["creation"],
         "birthdate": body["birthdate"],
