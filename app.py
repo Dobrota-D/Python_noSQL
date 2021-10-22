@@ -1,7 +1,6 @@
 import pymongo
 from flask import Flask, request
 
-
 """
 Her we gonna init the link between the mongodb database and the app.py, by using the admin account in the user_name
 password to access the database and collections and use flask for the root the local server.
@@ -31,6 +30,7 @@ def display_anime():
             "anime_list": anime_list
         }
 
+
 @app.route("/directors", methods=["GET"])
 def display_director():
     """
@@ -43,11 +43,15 @@ def display_director():
         {
             "director_list": director_list
         }
-   """
-   
-     We are going to create a new anime in the anime collection
-       
-    """
+
+
+"""
+
+  We are going to create a new anime in the anime collection
+    
+ """
+
+
 @app.route("/animes", methods=["POST"])
 def create_anime():
     """
@@ -81,4 +85,3 @@ def create_anime():
 
 if __name__ == "__main__":
     create_anime()
-
