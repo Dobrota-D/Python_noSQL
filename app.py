@@ -1,5 +1,6 @@
 import pymongo
 from flask import Flask, request
+import json
 
 """
 Her we gonna init the link between the mongodb database and the app.py, by using the admin account in the user_name
@@ -29,6 +30,32 @@ def display_anime():
         {
             "anime_list": anime_list
         }
+
+
+@app.route("/animes/<_id>", methods=["PATCH"])
+def patch_animes():
+    id_select = int(id)
+    # if the request method is PATCH
+    if request.method == "PATCH":
+        # if the requested id is found
+        if collection_animes.find({"_id": f"{id_select}"}):
+            # return a json with the new values of a animes
+            animes = json.loads(request.data.decode("utf-8"))
+            # compare the modifications with existing values
+            if animes != collection_animes:
+                anime_title = animes["title"]
+                anime_release_date = animes["release_date"]
+                anime_genre = animes["genre"]
+                anime_episodes = animes["episodes"]
+                anime_director = animes["director"]
+                anime_animation_studio = animes["animation_studio"]
+                # update the database with the new values using the update_one() method
+                # The first parameter is a query object defining which document to update : id
+                # The second parameter is an object defining the new values of the document : new values
+                collection_animes.update_one({"_id": id_select}, {
+                    "$set": {"title": anime_title, "release_date": anime_release_date, "genre": anime_genre,
+                             "episodes": anime_episodes, "director": anime_director,
+                             "animation_studio": anime_animation_studio}})
 
 
 @app.route("/directors", methods=["GET"])
@@ -84,4 +111,4 @@ def create_anime():
 
 
 if __name__ == "__main__":
-    create_anime()
+    patch_animes()
